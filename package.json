@@ -1,0 +1,22 @@
+{
+  "name": "project-2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "axios": "^0.16.2",
+    "body-parser": "^1.17.2",
+    "dotenv": "^4.0.0",
+    "env": "^0.0.2",
+    "express": "^4.15.3",
+    "express-mustache": "^1.0.3",
+    "google-finance": "^0.1.9",
+    "pg-promise": "^6.2.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
