@@ -36,7 +36,7 @@ app.use(logger('dev'));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(cookieParser());
-app.use('/user', require('./controllers/users'));
+app.use('/users', require('./controllers/users'));
 // app.use('/anport', require('./controllers/controller'));
 
 app.get('/', (req, res) => {

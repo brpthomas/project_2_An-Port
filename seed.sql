@@ -1,4 +1,6 @@
-DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS users CASCADE;
+DROP TABLE IF EXISTS portfolio CASCADE; 
+DROP TABLE IF EXISTS watchlist CASCADE; 
 
 CREATE TABLE users (
   id BIGSERIAL PRIMARY KEY,
@@ -6,3 +8,25 @@ CREATE TABLE users (
   password_digest VARCHAR NOT NULL,
   counter INTEGER
 );
+
+CREATE TABLE watchlist (
+  id BIGSERIAL PRIMARY KEY,
+  user_id INT REFERENCES users(id),
+  name VARCHAR NOT NULL,
+  summary VARCHAR NOT NULL,
+  network VARCHAR NOT NULL,
+  image VARCHAR NOT NULL
+);
+
+
+CREATE TABLE portfolio (
+  id BIGSERIAL PRIMARY KEY,
+  user_id INT REFERENCES users(id),
+  name VARCHAR NOT NULL,
+  summary VARCHAR NOT NULL,
+  network VARCHAR NOT NULL,
+  image VARCHAR NOT NULL
+
+);
+
+
