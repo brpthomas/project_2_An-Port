@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const mustacheExpress = require('mustache-express');
+const mainControllers = require('./controllers/controller');
 
 const app = express();
 const PORT = process.env.PORT || 8080;
@@ -37,6 +38,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(cookieParser());
 app.use('/users', require('./controllers/users'));
+app.use('/search', mainControllers);
 // app.use('/anport', require('./controllers/controller'));
 
 app.get('/', (req, res) => {

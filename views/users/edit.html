@@ -10,30 +10,16 @@
   <script src="../js/script.js"></script>
 </head>
 <body>
-
   <div class="container">
-    <nav>
-      <a href="/users/edit">Portfolio Analysis</a>
-      <a href="/users/logout">Log Out</a>
-    </nav>
-    <h1>An-Port</h1>
-    <h2>Welcome, {{email}}!</h1>
-    <h2>Dashboard:</h2>
-    {{#sectorPerfdata}}
-    <form id='sector-perform'>
+    <h1>Portfolio Analysis</h1>
+    <h2>Search Shows</h2>
+    <form id="search">
+      <input type="text" id="search-input" placeholder="Show Name" />
+      <button id="search-button">Search</button>
     </form>
-    {{/sectorPerfdata}}
-    <div class="show-list">
-      {{#shows}}
-      <a href="/shows/{{id}}">
-        <div class="show">
-          <h3>{{name}}</h3>
-          <img src="{{image}}" />
-        </div>
-      </a>
-      {{/shows}}
+    <div class="results">
+
     </div>
   </div>
-
 </body>
 </html>
