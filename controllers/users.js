@@ -1,6 +1,7 @@
 const User = require('../models/user');
 const router = require('express').Router();
 const passport = require('passport');
+const model = require('../models/model');
 
 // const controller = require('./controller');
 const auth = require('../services/auth');
@@ -64,19 +65,40 @@ router.get(
     // authenticated, he or she will be redirected to the login screen.
     auth.restrict,
     (req, res) => {
-        console.log('in handler for users/profile');
-        console.log('req.user:');
-        console.log(req.user);
+        // console.log('in handler for users/profile');
+        // console.log('req.user:');
+        // console.log(req.user);
+        let userData = {}
         User
             .findByEmail(req.user.email)
-            .then((user) => {
+            .then(user => {
+                userData.user = user
+                return User.showStock(req.user.id)
+            })
+            .then(savedStock => {
+                userData.savedStock = savedStock
+                console.log("hey from savedstock",userData.savedStock);
                 res.render(
-                    'users/profile', { user: user }
+                    'users/profile', {userData }
                 );
             })
             .catch(err => console.log('ERROR:', err));
     }
 );
+
+router.post('/profile', (req, res) => {
+    console.log('hey from controller post to profile');
+    console.log('HEY BITCH', req.body)
+    model
+        .addStock(req.body)
+        // .then(stock => res.json(stock))
+        .then((stock) => {
+            console.log('From post in users', stock)
+            res.render('users/profile', { stock })
+        })
+        .catch(error => console.log("error posting", error))
+});
+
 
 
 module.exports = router;

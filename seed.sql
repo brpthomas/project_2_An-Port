@@ -12,20 +12,20 @@ CREATE TABLE users (
 CREATE TABLE watchlist (
   id BIGSERIAL PRIMARY KEY,
   user_id INT REFERENCES users(id),
+  symbol VARCHAR NOT NULL,
   name VARCHAR NOT NULL,
-  summary VARCHAR NOT NULL,
-  network VARCHAR NOT NULL,
-  image VARCHAR NOT NULL
+  price  VARCHAR NOT NULL,
+  close VARCHAR NOT NULL
 );
 
 
 CREATE TABLE portfolio (
   id BIGSERIAL PRIMARY KEY,
   user_id INT REFERENCES users(id),
+  symbol VARCHAR NOT NULL,
   name VARCHAR NOT NULL,
-  summary VARCHAR NOT NULL,
-  network VARCHAR NOT NULL,
-  image VARCHAR NOT NULL
+  price INT NOT NULL,
+  close INT NOT NULL
 
 );
 

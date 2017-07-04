@@ -25,4 +25,9 @@ function findByEmail (email) {
   );
 };
 
-module.exports = {create, findByEmail};
+function showStock(id) {
+  return db.query("SELECT * FROM watchlist WHERE user_id=$1", [id])
+}
+
+
+module.exports = {create, findByEmail, showStock};
