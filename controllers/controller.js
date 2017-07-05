@@ -2,6 +2,28 @@ const router = require('express').Router();
 const passport = require('passport');
 const equitiesSearch = require('../services/equitiesSearch'); 
 const model = require('../models/model'); 
+//read
+
+router.get('/users/profile',(req, res) =>{
+	model
+		.getAllStock()
+		.then((stockData) => {
+			res.render('/users/profile', {stockData});
+		});
+});
+
+//create route
+
+// router.get('/search', (req, res) => {
+//     model
+//         .getAllStock()
+//         .then((stockData)=> {
+//         	console.log(stockData)
+//             res.render('/search', {stockData}); 
+//         }); 
+
+// }); 
+
 
 
 //Axios routes

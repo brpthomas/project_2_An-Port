@@ -78,13 +78,19 @@ router.get(
             .then(savedStock => {
                 userData.savedStock = savedStock
                 console.log("hey from savedstock",userData.savedStock);
-                res.render(
-                    'users/profile', {userData }
-                );
+                res.render('users/profile', {userData });
             })
             .catch(err => console.log('ERROR:', err));
     }
 );
+// router.get('/profile', (req, res) => {
+//     model
+//         .getAllStock()
+//         .then((stockData)=> {
+//             res.render('/profile', {stockData}); 
+//         }); 
+
+// }); 
 
 router.post('/profile', (req, res) => {
     console.log('hey from controller post to profile');
@@ -98,6 +104,18 @@ router.post('/profile', (req, res) => {
         })
         .catch(error => console.log("error posting", error))
 });
+
+router.delete('users/:id', (req, res) => {
+    console.log("hi from controller/users")
+    model
+        .destory(req.params.id)
+        .then(data => {
+            res.send(data)
+        })
+        .catch((err)=>{
+            console.log('error from delete route', err)
+        })
+})
 
 
 

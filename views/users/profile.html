@@ -18,7 +18,7 @@
             <a href="/users/logout">Log Out</a>
         </nav>
         <h1>An-Port</h1>
-        <h2>Welcome, {{userData.user.email}}!</h1>
+        <h2>Hi, {{userData.user.email}}!</h1>
     <h4>Dashboard:</h4> 
     {{#userData.savedStock}}
     <ul>
@@ -26,11 +26,13 @@
     <li>{{name}}</li>
     <li>{{price}}</li>
     <li>{{close}}</li>
-        {{/userData.savedStock}}
-
     </ul>
+  
+    {{/userData.savedStock}}
     </div>
-
+   <div id="delete">
+            <button>Delete!</button>
+        </div>
 </body>
 
 </html>
