@@ -20,15 +20,15 @@
         <h1>An-Port</h1>
         <h2>Hi, {{userData.user.email}}!</h1>
     <h4>Dashboard:</h4> 
-    {{#userData.savedStock}}
+    {{#stock}}
     <ul>
+    <li>{{symbol}}</li>
+    <li>{{company}}</li>
     <li>{{currentPrice}}</li>
-    <li>{{name}}</li>
-    <li>{{price}}</li>
-    <li>{{close}}</li>
+    <li>{{closingPrice}}</li>
     </ul>
   
-    {{/userData.savedStock}}
+    {{/stock}}
     </div>
    <div id="delete">
             <button>Delete!</button>
